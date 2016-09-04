@@ -1,0 +1,32 @@
+{
+  "name": "edison_service",
+  "version": "1.0.0",
+  "description": "project iot service.",
+  "main": "es_entry.js",
+  "scripts": {
+    "test": "node es_entry.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stitchcula/edison_service.git"
+  },
+  "keywords": [
+    "node",
+    "edison",
+    "iot"
+  ],
+  "author": "Stitch Cula",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/stitchcula/edison_service/issues"
+  },
+  "homepage": "https://github.com/stitchcula/edison_service#readme",
+  "dependencies": {
+    "babel-core": "^6.14.0",
+    "babel-preset-es2015-node6": "^0.3.0",
+    "babel-preset-stage-3": "^6.11.0",
+    "koa": "^2.0.0-alpha.6",
+    "mongodb": "^2.2.9",
+    "mosca": "^2.1.0"
+  }
+}
