@@ -27,6 +27,7 @@
     "babel-preset-stage-3": "^6.11.0",
     "koa": "^2.0.0-alpha.6",
     "mongodb": "^2.2.9",
-    "mosca": "^2.1.0"
+    "mosca": "^2.1.0",
+    "redis": "^2.6.2"
   }
 }
