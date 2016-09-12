@@ -25,7 +25,12 @@
     "babel-core": "^6.14.0",
     "babel-preset-es2015-node6": "^0.3.0",
     "babel-preset-stage-3": "^6.11.0",
-    "koa": "^2.0.0-alpha.6",
+    "co-body": "^4.2.0",
+    "dir-requirer": "^1.0.4",
+    "koa": "^2.0.0",
+    "koa-convert": "^1.2.0",
+    "koa-mongo": "^0.6.0",
+    "koa-router": "^5.4.0",
     "mongodb": "^2.2.9",
     "mosca": "^2.1.0",
     "redis": "^2.6.2"
