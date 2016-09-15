@@ -2,6 +2,8 @@
  * Created by stitchcula on 2016/9/4.
  */
 
+"use strict";
+
 import Koa from 'koa'
 import Router from 'koa-router'
 import mongo from 'koa-mongo'
@@ -27,6 +29,7 @@ for(var r in routes){
 
 /***  Koa init ***/
 const app=new Koa()
+/*
 app.use(convert(mongo({
     host:process.env['MONGO_HOST']||'localhost',
     port:process.env['MONGO_PORT']||27017,
@@ -34,10 +37,16 @@ app.use(convert(mongo({
     //pass:process.env['MONGO_PWD']||"",
     db:"smth"
 })))
-
+*/
+app.use(async (ctx,next)=>{
+    ctx.mongo=await mongodb.MongoClient
+        .connect(`mongodb://${process.env['MONGO_HOST']}:${process.env['MONGO_PORT']}/smth`)
+    await next()
+    ctx.mongo.close()
+})
 app.use(async (ctx,next)=>{
     console.log(ctx.ip+" "+ctx.method+" "+ctx.path+" at "+new Date().toLocaleString())
-    ctx.mongo=ctx.mongo.db("smth")
+    //ctx.mongo=ctx.mongo.db("smth")
     try{
         await next()
     }catch(err){
