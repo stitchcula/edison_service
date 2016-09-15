@@ -32,10 +32,10 @@ router.post('/create',async (ctx,next)=>{
 //user: bind?token=
 router.get('/bind',async (ctx,next)=>{
     var res=ctx.query.token?
-        await ctx.mongo.collection("users").findOne({token:ctx.query.token}):
-        await ctx.mongo.collection("users").findOne({device_id:ctx.query.device_id})
+        (await ctx.mongo.collection("users").findOne({token:ctx.query.token})):
+        (await ctx.mongo.collection("users").findOne({device_id:ctx.query.device_id}))
     var status=ctx.query.token?
-        await ctx.mongo.collection("online_list").findOne({device_id:ctx.query.device_id}):
+        (await ctx.mongo.collection("online_list").findOne({device_id:ctx.query.device_id})):
         null;
     ctx.body=res?
         {result:{uin:res.uin,token:res.token,device_id:res.device_id,device_status:status?1:-1}}:
@@ -45,8 +45,8 @@ router.get('/bind',async (ctx,next)=>{
 
 router.get('/',async (ctx,next)=>{
     var res=ctx.query.token?
-        await ctx.mongo.collection("users").findOne({token:ctx.query.token,uin:ctx.query.uin}):
-        await ctx.mongo.collection("users").findOne({pass:ctx.query.pass,email:ctx.query.email})
+        (await ctx.mongo.collection("users").findOne({token:ctx.query.token,uin:ctx.query.uin})):
+        (await ctx.mongo.collection("users").findOne({pass:ctx.query.pass,email:ctx.query.email}))
     delete res.pass
     ctx.body=res?{result:res}:{err_code:502,err_msg:"denial of service."}
     await next()
